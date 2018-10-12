@@ -1,14 +1,57 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar color="light">
+    <ion-buttons start padding>
+      <button ion-button icon-only color="royal">
+        <img src="assets/imgs/logo.png" width="40">
+      </button>
+    </ion-buttons>
+    <ion-title>Lions District 306 A1</ion-title>
+    <ion-buttons end padding>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+<ion-content>
+  <ion-grid>
+    <ion-card >
+      <ion-row>
+        <ion-col col-8>
+          <div>About Lionism</div>
+        </ion-col>
+        <ion-col padding>
+          <img src="assets/imgs/melvni_jones.jpg" class="imgs" />
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-card (tap)="tapEvent($event)">
+      <ion-row>
+        <ion-col col-8>
+          <div>Lions Club International</div>
+        </ion-col>
+        <ion-col padding>
+          <img src="assets/imgs/lions_international_logo.png" class="imgs" />
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-card>
+      <ion-row>
+        <ion-col col-8>
+          <div>Lions District 306 A1</div>
+        </ion-col>
+        <ion-col padding>
+          <img src="assets/imgs/logo.png" class="imgs" />
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-card class="noticard" color="primary">
+      <ion-row>
+        <ion-col col-12>
+          <div class="notidiv">Notifications</div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ion-content>  

@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar color="light">
+      <ion-buttons start padding (tap)="tapEvent($event)">
+        <button ion-button icon-only color="royal">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>Lions International</ion-title>
+      <ion-buttons end padding>
+        <button ion-button icon-only color="royal">
+            <img src="assets/imgs/lions_international_logo.png" width="40">
+          </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+<ion-tabs>
+    <ion-tab [root]="officersRoot" tabTitle="Officers"></ion-tab>
+    <ion-tab [root]="presidentRoot" tabTitle="President"></ion-tab>
+    <ion-tab [root]="contactRoot" tabTitle="Contact" ></ion-tab>
+</ion-tabs>

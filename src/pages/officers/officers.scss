@@ -1,0 +1,29 @@
+page-officers {
+    ion-col div {
+        text-align: left;
+        margin-top:10px;
+        font-size: 15px;
+      }
+    
+      ion-card{
+          height: 120px;
+      }
+      .imgs{
+          width: 70px;
+          height: 70px;
+          margin: auto;
+          margin-top: 0px;
+          border-radius: 50%;
+      }
+      .noticard{
+          height: 50px!important;
+      }
+      .notidiv{
+        text-align: center;
+        margin-top: 8px;
+        font-size: 17px;
+      }
+      ion-content{
+          margin-top: 20px;
+      }
+}
