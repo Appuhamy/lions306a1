@@ -15,19 +15,148 @@
 
 
 <ion-content>
-    <ion-grid>
-      <ion-card>
-        <ion-row>
-          <ion-col padding>
-            <img src="assets/imgs/international_president.jpg" class="imgs" />
-          </ion-col>
-          <ion-col col-8>
-            <div>Lion Gudrun Bjort Yngvadottir</div>
-            <div><b>International President</b></div>
-            <div>2018-2019</div>
-          </ion-col>
-        </ion-row>
-      </ion-card>
-    </ion-grid>
-    <accordion-accordion title="Your Title"> Your Content Here </accordion-accordion>
-  </ion-content>
+  <ion-grid>
+    <ion-card class="detailcard">
+      <ion-row>
+        <ion-col padding>
+          <img src="assets/imgs/international_president.jpg" class="imgs" />
+        </ion-col>
+        <ion-col col-8>
+          <div>Lion Gudrun Bjort Yngvadottir</div>
+          <div><b>International President</b></div>
+          <div>2018-2019</div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+  <ion-card>
+    <ion-card-header>
+      <ion-segment [(ngModel)]="segemnt_one">
+        <ion-segment-button value="bio">
+          BIO
+        </ion-segment-button>
+        <ion-segment-button value="theme">
+          THEME
+        </ion-segment-button>
+        <ion-segment-button value="message">
+          MESSSAGE
+        </ion-segment-button>
+      </ion-segment>
+    </ion-card-header>
+    <ion-card-content>
+      <div [ngSwitch]="segemnt_one">
+        <ion-list *ngSwitchCase="'bio'">
+          <div>
+            Gudrun Yngvadottir, from Gardabaer, Iceland, was elected to serve as international president of Lions Clubs
+            International at the association’s 101st International Convention, held in Las Vegas,Nevada, USA, June 29
+            through July 3, 2018.
+
+            International President Yngvadottir is a biomedical scientist and has worked in research,education and
+            management. Since 1990 she has worked at the University of Iceland as Vice Director at the Institute of
+            Continuing Education.
+
+            A member of the Gardabaejar Eik Lions Club since 1992, President Yngvadottir has held many offices within
+            the association, including district governor council chairperson.
+
+            She has dedicated her service to children and youth, membership and leadership development, health and
+            wellness, including vision and diabetes, environmental projects and Lions Clubs International Foundation
+            (LCIF).
+
+
+
+
+            President Yngvadottir served as international director 2010-2012 on the Leadership Committee, as
+            chairperson the second year; 2011-2013 on the Women’s Task Force; 2012-2013 she was aboard appointee on the
+            District and Club Service Committee; and 2013-2014 on LCIF Governance Ad Hoc Committee.
+
+            In recognition of her service, she has received numerous awards including the Kjarans Medal, the highest
+            award of Icelandic Lions; the Lions Crystal, the highest award of Norwegian Lions; several Membership and
+            Extension Awards; eleven International President’s Awards; and the Ambassador of Good Will Award, the
+            highest Lions Clubs International award. She is also a Progressive Melvin Jones Fellow.
+
+            In addition to her Lions activities, President Yngvadottir is active in numerous professional and community
+            organizations, including the Icelandic Association of Biomedical Scientists and has been its representative
+            for cooperation between Scandinavian and European scientists.
+
+            President Yngvadottir and her husband, Dr. Jon Bjarni Thorsteinsson, a past international director and a
+            Progressive Melvin Jones Fellow. They have one son, one daughter and six grandchildren.
+
+          </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'theme'">
+          <div>
+            Accomplished people from around the world have led our great association in its over 100-year history.
+            While each international president brings a unique perspective and expertise to Lions Clubs International,
+            there has (and always will be) a single constant that unites all Lions: service. With this as a guide, each
+            president is committed to helping clubs increase their service, and as a result, their impact on our local
+            and global communities.
+          </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'message'">
+          <div>
+            <b>Dear Lion,</b><br />
+            Growing up in my home country of Iceland has helped shape who I am today. It is a small but beautiful
+            country with tight-knit communities of people who rely on each other and work together to meet new
+            challenges. Just like Lions. This spirit of unity is a cornerstone of our motto and my presidential theme,
+            “We Serve.”
+            We serve the world, our local communities, our neighbors and each other with unmatched kindness and pride.
+            We are a global force for good with a century of experience and compassion. When we channel the power of
+            more than 1.4 million Lions, we can reach new horizons of service together.
+            We can do it by finding creative solutions to the challenges facing our communities. We can achieve more
+            when we embrace new technologies. We can go further than we’ve ever gone before when we invite caring men
+            and women to join us in service. It’s true, we have achieved so much in our first 100 years, but together
+            we can unlock our true potential in our communities and around the world.
+            When we embrace our ambitious future together, we will serve in a way the world has never seen before. It
+            will be my honor to stand side by side with you as we serve beyond the horizon.
+            In friendship,
+            <br />
+            <b>Gudrun Yngvadottir</b>
+            <br />
+            <b>Your International President</b>
+          </div>
+        </ion-list>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-segment [(ngModel)]="segemnt_two">
+        <ion-segment-button value="pMessage">
+          PRESIDENTIAL MESSSAGE
+        </ion-segment-button>
+        <ion-segment-button value="pFocus">
+          PRESIDENTIAL FOCUS
+        </ion-segment-button>
+      </ion-segment>
+    </ion-card-header>
+    <ion-card-content>
+      <div [ngSwitch]="segemnt_two">
+        <ion-list *ngSwitchCase="'pMessage'">
+          <div>
+            <b>Beyond the Horizon</b>
+            <br />
+            There’s a world of service yet to be reached, even by Lions. During International President Gudrun
+            Yngvadottir’s year at the helm of Lions International, we’ll reach within our district, clubs and selves to
+            reach levels of humanitarian good the world has never known.
+          </div>
+        </ion-list>
+        <ion-list *ngSwitchCase="'pFocus'">
+          <div>
+            International President Yngvadottir’s programs and initiatives will focus around four key elements of Lions
+            International that are important to moving the association forward.
+            <br/>
+            1) Moving membership forward
+            <br/>
+            2) Increasing leadership development
+            <br/>
+            3) Promoting the fellowship of Lions
+            <br/>
+            4) Sharing our stories
+          </div>
+        </ion-list>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

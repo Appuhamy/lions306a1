@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 
 /**
  * Generated class for the PresidentPage page.
@@ -15,8 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PresidentPage {
  
+  segemnt_one: string = "theme";
+  segemnt_two: string = "pMessage";
+  isAndroid: boolean = false;
+
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(platform: Platform,public navCtrl: NavController, public navParams: NavParams) {
+    this.isAndroid = platform.is('android');
   }
 
   ionViewDidLoad() {

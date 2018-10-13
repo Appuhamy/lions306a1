@@ -10,7 +10,7 @@ import { Component,OnInit,Renderer, ViewChild, Input } from '@angular/core';
   selector: 'accordion-accordion',
   templateUrl: 'accordion-accordion.html'
 })
-export class AccordionAccordionComponent implements OnInit {
+export class AccordionAccordionComponent  implements OnInit{
   accordionExapanded = false;
   @ViewChild("cc") cardContent: any;
   @Input('title') title: string;
