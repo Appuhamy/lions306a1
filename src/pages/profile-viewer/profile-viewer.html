@@ -5,14 +5,20 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>profileViewer</ion-title>
+    <ion-title>
+      Searchbars
+    </ion-title>
   </ion-navbar>
-
+  <ion-toolbar style="margin-top: 30px;">
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+</ion-toolbar>
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" style="height: 60px;" (click)="itemSelected(item)">
+      {{ item }}
+    </button> 
+  </ion-list>
 </ion-content>

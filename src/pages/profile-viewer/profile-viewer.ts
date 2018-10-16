@@ -14,10 +14,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'profile-viewer.html',
 })
 export class ProfileViewerPage {
-
+  items;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  fetchData(){
+    
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfileViewerPage');
   }
