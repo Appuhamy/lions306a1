@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar color="light">
+      <ion-buttons start padding (tap)="tapEvent($event)">
+        <button ion-button icon-only color="royal">
+            <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>Lions District 306 A1</ion-title>
+      <ion-buttons end padding>
+        <button ion-button icon-only color="royal">
+            <img src="assets/imgs/logo.png" width="40">
+          </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+<ion-tabs>
+    <ion-tab [root]="governorRoot" tabTitle="Governor" ></ion-tab>
+    <ion-tab [root]="districtOfficersRoot" tabTitle="District officers" ></ion-tab>
+    <ion-tab [root]="manualRoot" tabTitle="Manual" ></ion-tab>
+</ion-tabs>

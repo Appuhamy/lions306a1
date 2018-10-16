@@ -1,0 +1,24 @@
+<!--
+  Generated template for the DistrictOfficersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Searchbars
+    </ion-title>
+  </ion-navbar>
+  <ion-toolbar style="margin-top: 30px;">
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" style="height: 60px;" (click)="itemSelected(item)">
+      {{ item }}
+    </button> 
+  </ion-list>
+</ion-content>

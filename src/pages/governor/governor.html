@@ -7,12 +7,173 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>GOVERNOR</ion-title>
+    <ion-title>Governor</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-grid>
+    <ion-card class="detailcard">
+      <ion-row>
+        <ion-col padding>
+          <img src="assets/imgs/lion_chandani_withana_mjf.jpg" class="imgs" />
+        </ion-col>
+        <ion-col col-8>
+          <div>Lion Chandani Withana MJF</div>
+          <div><b>District Governor</b></div>
+          <div>2018-2019</div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+  <ion-card>
+    <ion-card-header>
+      <ion-segment [(ngModel)]="segemnt_one">
+        <ion-segment-button value="bio">
+          BIO
+        </ion-segment-button>
+        <ion-segment-button value="family">
+          FAMILY
+        </ion-segment-button>
+        <ion-segment-button value="tpp">
+          TWO POINT PROGRAMME
+        </ion-segment-button>
+      </ion-segment>
+    </ion-card-header>
+    <ion-card-content>
+      <div [ngSwitch]="segemnt_one">
+        <ion-list *ngSwitchCase="'bio'">
+          <div>
+            Chandani Padmali Withana a past pupil of Visakha Vidyalaya, Colombo
 
+            Married to PDG Lion Paddy Withana
+            Mother of two daughters and grandmother to one grand daughter
+
+            A member of the Lions Club of Aluthgama Bentota for fifteen years
+            Served the Club as President, Secretary, Treasurer, Leo Advisor
+
+            Served the District as Zone Chairperson, District Chairperson Lions Quest
+            <br />
+            <br />
+            A Melvin Jones Fellow 2015
+            Mahendra Amarasuriya Fellow 2018
+
+            2nd Vice District Governor 2017
+
+            1st Vice District Governor February 2018
+
+            District Governor 2018
+          </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'family'">
+          <div>
+
+            Chandani Padmali Withana only child of Chandra & Nandani de Silva of Colombo, was educated at Visakha
+            Vidyalaya Colombo. She represented her school at Hockey and was awarded school colours.
+            <br />
+            <br />
+            Married to Paddy Withana they are the parents of two daughters. Nadeeka a past pupil of Visakha Vidyalaya
+            is a Lawyer by Profession. She is a Bachelor of Arts from the National University of Singapore, Master of
+            Science in Strategic Studies from the Nanyang University of Singapore, LLB from the University of London
+            and an Attorney at Law.
+            <br />
+            <br />
+            Younger daughter Vindya a past pupil of Visakha Vidyalaya, Bachelor of Science in Business & Information
+            Technology. Married to Nuwan Bandara, a Senior Software Engineer at Depesco USA. They are parents of one
+            daughter Evni Akithya
+            <br />
+            <br />
+            Both daughters are former Leos the Leo Club of Aluthgama Bentota and Nadeeka is a Member of the Lions Club
+            of Aluthgama Bentota
+            <br />
+            <br />
+            Chandani, a Lion Lady since 1986 became the Lion Lady of the Year in 1999 / 2000, and a Lion of Aluthgama
+            Bentota in the year 2003. She has held many offices in the Club:-
+            <br />
+            <br />
+            Secretary 2005 / 2006
+            <br />
+            <br />
+            President 2006 / 2007, 2007 / 2008
+            <br />
+            <br />
+            Treasurer 2015 / 2016, 2016 / 2017, 2017 / 2018
+            <br />
+            <br />
+            Zone Chairperson 2008 / 2009, 2014 / 2015
+            <br />
+            <br />
+            District Chairperson Lions Quest 2012 /2013
+            <br />
+            <br />
+            Awarded the Best Zone Chairperson 2014 /2015
+            <br />
+            <br />
+            Melvin Jones Fellow 2015
+            <br />
+            <br />
+            Mahendra Amarasuriya Fellow 2018
+            <br />
+            <br />
+            Her experience in Lionism and its activities was as the spouse of Past District Governor Lion Paddy
+            Withana, through his many functions in the Lions District before becoming a District Governor.
+            <br />
+            <br />
+            Lion Chandani was elected as the Second Vice District Governor in May 2017, First Vice District Governor in
+            February 2018 and the District Governor in May 2018.
+
+          </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'tpp'">
+          <div>
+            <b>District Governor's Two Point Programme</b><br />
+            <b>PROGRAMME ONE</b><br />
+            STRENGTHEN THE DISTRICT
+            WITH CHANGES TO THE DISTRICT & CLUB ADMINISTRATION
+            <br />
+            <br />
+            <b>PROGRAMME TWO</b><br />
+            STRENGHEN THE CLUBS
+            MEMBERS SERVE TOGETHER FOR GREATER IMPACT
+            <br />
+          </div>
+        </ion-list>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <span style="color: #088ccf;">THEME</span>
+    </ion-card-header>
+    <ion-card-content>
+      <div style="font-size: 16px; position: relative;text-align: center;">
+        "WE SERVE FOR CHANGE"
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+      <ion-card-header>
+        <span style="color: #d0990c;">VISION</span>
+      </ion-card-header>
+      <ion-card-content>
+        <div style="font-size: 16px; position: relative;text-align: center;">
+            "TO BUILD A STRONG & FLOURISHING DISTRICT"
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-card style="margin-bottom: 50px;">
+        <ion-card-header>
+          <span style="color: #94268a;">MISSION</span>
+        </ion-card-header>
+        <ion-card-content>
+          <div style="font-size: 16px; position: relative;text-align: center;">
+             "TO FOSTER FRIENDSHIP AMONG LION MEMBERS, 
+             BY SERVING TOGETHER"             
+          </div>
+        </ion-card-content>
+      </ion-card>
 </ion-content>

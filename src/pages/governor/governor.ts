@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 
 /**
  * Generated class for the GovernorPage page.
@@ -15,9 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class GovernorPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  segemnt_one: string = "bio";
+  isAndroid: boolean = false;
 
+  
+  constructor(platform: Platform,public navCtrl: NavController, public navParams: NavParams) {
+    this.isAndroid = platform.is('android');
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad GovernorPage');
   }
