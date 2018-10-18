@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import{AngularFireDatabase,AngularFireList }from '@angular/fire/database'
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database'
 import { Observable } from 'rxjs-compat';
 import { FirebaseDatabase } from '@angular/fire';
-import{FirebaseListObservable}from '@angular/fire/database-deprecated'
+import { FirebaseListObservable } from '@angular/fire/database-deprecated'
 /**
  * Generated class for the ProfileViewerPage page.
  *
@@ -19,9 +19,21 @@ import{FirebaseListObservable}from '@angular/fire/database-deprecated'
 export class ProfileViewerPage {
   list;
   title;
+  key:string="";
   tasks;
-  items: Observable<any[]>
-  constructor(public navCtrl: NavController, public navParams: NavParams,public db:AngularFireDatabase) {
+  status="regular";
+  items: Observable<any[]>;
+  regionsList=[
+    'Region - 1',
+    'Region - 2',
+    'Region - 3',
+    'Region - 4',
+    'Region - 5',
+    'Region - 6',
+    'Region - 7',
+  ];
+  mdb:AngularFireDatabase;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase) {
     this.title = navParams.get('data');
     // this.items=db.list("officers/",ref=>ref.child("principleOfficeBearers").orderByKey());
     // this.items = db.list('/officers/regionChairPersons');
@@ -32,7 +44,8 @@ export class ProfileViewerPage {
     //   }
     // );
     // console.log("Items2:"+this.items);
-    this.items = db.list('officers/principleOfficeBearers').valueChanges();
+    this.mdb=db;
+    this.init();
   }
 
   fetchData() {
@@ -44,28 +57,44 @@ export class ProfileViewerPage {
   init() {
     if (this.title === "Principle Office Bearers") {
       // this.app.getRootNav().push(ProfileViewerPage, {
-        //data: "principleOfficeBearers"
+      //data: "principleOfficeBearers"
       // });
+      this.items = this.mdb.list('officers/principleOfficeBearers').valueChanges();
     } else if (this.title === "Gloabal Action Team") {
-        //data: "globalActionTeam"
+      // key = "globalActionTeam"
+      this.items = this.mdb.list('officers/globalActionTeam').valueChanges();
     } else if (this.title === "Advisor of the Cabinet") {
-        //data: "advisorOfTheCabinet"      
+      // key = "advisorOfTheCabinet"
+      this.items = this.mdb.list('officers/advisorOfTheCabinet').valueChanges();
     } else if (this.title === "Region Chairpersons") {
-        //data: "regionChairPersons"
+      // key = "regionChairPersons"
+      this.initRegions();
+      // this.items = this.mdb.list('officers/regionChairPersons').valueChanges();
     } else if (this.title === "Zone Chairpersons") {
-        //data: "zoneChairPersons"
+      // key = "zoneChairPersons"
+      this.items = this.mdb.list('officers/zoneChairPersons').valueChanges();
     } else if (this.title === "District Chairpersons - LCI") {
-       // data: "districtChairPersonsLci"
+      // key = "districtChairPersonsLci"
+      this.items = this.mdb.list('officers/districtChairPersonsLci').valueChanges();
     } else if (this.title === "District Chairpersons") {
-        //data: "districtChairPersons"
+      // key = "districtChairPersons"
+      this.items = this.mdb.list('officers/districtChairPersons').valueChanges();
     } else if (this.title === "District Coordinators") {
-        //data: "districtCoordinators"
+      // key = "districtCoordinators"
+      this.items = this.mdb.list('officers/districtCoordinators').valueChanges();
     } else if (this.title === "District Coordiators - Environment") {
-        //data: "districtCoordinatorEnvironment"
+      // key = "districtCoordinatorEnvironment"
+      this.items = this.mdb.list('officers/districtCoordinatorEnvironment').valueChanges();
     } else if (this.title === "District Coordinators - Publicity") {
-        //data: "districtCoordinatorPublicity"
+      // key = "districtCoordinatorPublicity"
+      this.items = this.mdb.list('officers/districtCoordinatorPublicity').valueChanges();
     } else if (this.title === "Club Officers") {
-        //data: "clubOfficers"
+      // key = "clubOfficers"
+      this.items = this.mdb.list('officers/clubOfficers').valueChanges();
     }
+  }
+
+  initRegions(){
+    this.status="region";
   }
 }
