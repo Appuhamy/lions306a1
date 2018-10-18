@@ -17,13 +17,16 @@
 
 <ion-content>
   <ion-list>
-    <ion-item ion-item *ngFor="let item of items | async">
+    <ion-item ion-item *ngFor="let item of items | async" padding>
       <!-- <div *ngIf='item == null'></div> -->
       <!-- <div *ngIf='item != null'>{{item.name}}</div> -->
       <div><b>{{item.name}}</b></div>
-      <div>{{item.address}}</div>
+      <div>{{item.position}}</div>
       <div>{{item.homeClub}}</div>
       <div>{{item.spouse}}</div>
+      <div>{{item.address}}</div>
+      <div>{{item.email}}</div>
+      <div>{{item.mobileNumber}}(M){{item.residancePhoneNumber}}(R){{item.officePhoneNumber}}(O)</div>
     </ion-item> 
   </ion-list> 
   <!-- <ul>
