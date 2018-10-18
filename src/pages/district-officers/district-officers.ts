@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, IonicApp } from 'ionic-angular';
 import { ProfileViewerPage } from '../profile-viewer/profile-viewer';
+import { App } from 'ionic-angular';
 /**
  * Generated class for the DistrictOfficersPage page.
  *
@@ -15,7 +16,7 @@ import { ProfileViewerPage } from '../profile-viewer/profile-viewer';
 })
 export class DistrictOfficersPage {
   items;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private app: App,public navCtrl: NavController, public navParams: NavParams) {
     this.initializeItems();
   }
   initializeItems() {
@@ -49,52 +50,9 @@ export class DistrictOfficersPage {
   }
 
   itemSelected(item) {
-    if (item === "Principle Office Bearers") {
-      this.navCtrl.push(ProfileViewerPage, {
-        data: "principleOfficeBearers"
-      });
-    } else if (item === "Gloabal Action Team") {
-      this.navCtrl.push(ProfileViewerPage, {
-        data: "globalActionTeam"
-      });
-    } else if (item === "Advisor of the Cabinet") {
-      this.navCtrl.push(ProfileViewerPage, {
-        data: "advisorOfTheCabinet"
-      });
-    } else if (item === "Region Chairpersons") {
-      this.navCtrl.push(ProfileViewerPage, {
-        data: "regionChairPersons"
-      });
-    } else if (item === "Zone Chairpersons") {
-      this.navCtrl.push(ProfileViewerPage, {
-        data: "zoneChairPersons"
-      });
-    }else if (item === "District Chairpersons - LCI") {
-      this.navCtrl.push(ProfileViewerPage, {
-        data: "districtChairPersonsLci"
-      });
-    }else if (item === "District Chairpersons") {
-      this.navCtrl.push(ProfileViewerPage, {
-        data: "districtChairPersons"
-      });
-    }else if (item === "District Coordinators") {
-      this.navCtrl.push(ProfileViewerPage, {
-        data: "districtCoordinators"
-      });
-    }else if (item === "District Coordiators - Environment") {
-      this.navCtrl.push(ProfileViewerPage, {
-        data: "districtCoordinatorEnvironment"
-      });
-    }else if (item === "District Coordinators - Publicity") {
-      this.navCtrl.push(ProfileViewerPage, {
-        data: "districtCoordinatorPublicity"
-      });
-    }else if (item === "Club Officers") {
-      this.navCtrl.push(ProfileViewerPage, {
-        data: "clubOfficers"
-      });
-    }
-
+    this.app.getRootNav().push(ProfileViewerPage, {
+      data: item
+    });
   }
 
   ionViewDidLoad() {

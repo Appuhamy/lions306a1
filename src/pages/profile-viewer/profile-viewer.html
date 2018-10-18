@@ -7,18 +7,28 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Searchbars
+      {{title}}
     </ion-title>
   </ion-navbar>
-  <ion-toolbar style="margin-top: 30px;">
+  <ion-toolbar>
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let item of items" style="height: 60px;" (click)="itemSelected(item)">
-      {{ item }}
-    </button> 
-  </ion-list>
+    <ion-item ion-item *ngFor="let item of items | async">
+      <!-- <div *ngIf='item == null'></div> -->
+      <!-- <div *ngIf='item != null'>{{item.name}}</div> -->
+      <div><b>{{item.name}}</b></div>
+      <div>{{item.address}}</div>
+      <div>{{item.homeClub}}</div>
+      <div>{{item.spouse}}</div>
+    </ion-item> 
+  </ion-list> 
+  <!-- <ul>
+    <li *ngFor="let item of items | async">
+       {{ item | json }}
+    </li>
+  </ul> -->
 </ion-content>

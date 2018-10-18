@@ -7,15 +7,36 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LionsInternationalHomePage } from '../pages/lions-international-home/lions-international-home';
 import{District306a1homePage}from '../pages/district306a1home/district306a1home'
+import{ProfileViewerPage} from '../pages/profile-viewer/profile-viewer'
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+
+
+export const config = {
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyDSlb6ASgpa3eD8WW2Bif60DeyAKLuiqbU',
+    authDomain: 'lions-district-306-a1.firebaseapp.com',
+    databaseURL: 'https://lions-district-306-a1.firebaseio.com',
+    projectId: 'lions-district-306-a1',
+    storageBucket: 'lions-district-306-a1.appspot.com',
+    messagingSenderId: '951430074738'
+  }
+};
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LionsInternationalHomePage,
-    District306a1homePage
+    District306a1homePage,
+    ProfileViewerPage,
   ],
   imports: [
     BrowserModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(config.firebase),
     IonicModule.forRoot(MyApp),
   ],
   exports: [],
@@ -24,7 +45,8 @@ import{District306a1homePage}from '../pages/district306a1home/district306a1home'
     MyApp,
     HomePage,
     LionsInternationalHomePage,
-    District306a1homePage
+    District306a1homePage,
+    ProfileViewerPage
   ],
   providers: [
     StatusBar,
