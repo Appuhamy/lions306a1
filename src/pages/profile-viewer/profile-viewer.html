@@ -18,16 +18,16 @@
 <ion-content>
   <ion-list>
     <div *ngIf='status==="regular"'>
-      <ion-item ion-item *ngFor="let item of items | async" padding>
+      <ion-item ion-item *ngFor="let item of tempItems | async" padding>
         <!-- <div *ngIf='item == null'></div> -->
         <!-- <div *ngIf='item != null'>{{item.name}}</div> -->
-        <div><b>{{item.name}}</b></div>
-        <div>{{item.position}}</div>
-        <div>{{item.homeClub}}</div>
-        <div>{{item.spouse}}</div>
-        <div>{{item.address}}</div>
-        <div>{{item.email}}</div>
-        <div>{{item.mobileNumber}}(M){{item.residancePhoneNumber}}(R){{item.officePhoneNumber}}(O)</div>
+        <div><b>{{item.payload.val().name}}</b></div>
+        <div>{{item.payload.val().position}}</div>
+        <div>{{item.payload.val().homeClub}}</div>
+        <div>{{item.payload.val().spouse}}</div>
+        <div>{{item.payload.val().address}}</div>
+        <div>{{item.payload.val().email}}</div>
+        <div>{{item.payload.val().mobileNumber}}(M){{item.payload.val().residancePhoneNumber}}(R){{item.payload.val().officePhoneNumber}}(O)</div>
       </ion-item>
     </div>
     <div *ngIf='status==="region"'>
