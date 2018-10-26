@@ -10,7 +10,7 @@
       {{title}}
     </ion-title>
   </ion-navbar>
-  <ion-toolbar>
+  <ion-toolbar *ngIf="showSearchbar">
     <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
@@ -31,9 +31,19 @@
       </ion-item>
     </div>
     <div *ngIf='status==="region"'>
-        <button ion-item *ngFor="let region of regionsList" padding>
-          {{region}}
-        </button>
+      <button ion-item *ngFor="let region of regionsList" padding (click)="regionSelected(region)">
+        {{region |uppercase}}
+      </button>
+    </div>
+    <div *ngIf='zoneStatus==="on"'>
+      <button ion-item *ngFor="let zone of zoneList" padding (click)="zoneSelected(zone)">
+        {{zone |uppercase}}
+      </button>
+    </div>
+    <div *ngIf='clubStatus==="on"'>
+      <button ion-item *ngFor="let item of tempItems | async" padding (click)="clubSelected(item.payload.key)">
+        {{item.payload.key}}
+      </button>
     </div>
   </ion-list>
   <!-- <ul>
