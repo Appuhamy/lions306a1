@@ -8,9 +8,9 @@ import { HomePage } from '../pages/home/home';
 import { LionsInternationalHomePage } from '../pages/lions-international-home/lions-international-home';
 import{District306a1homePage}from '../pages/district306a1home/district306a1home'
 import{ProfileViewerPage} from '../pages/profile-viewer/profile-viewer'
+import{AboutLionismPage} from '../pages/about-lionism/about-lionism'
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { Observable } from 'rxjs';
 
 
 export const config = {
@@ -32,6 +32,7 @@ export const config = {
     LionsInternationalHomePage,
     District306a1homePage,
     ProfileViewerPage,
+    AboutLionismPage,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +47,8 @@ export const config = {
     HomePage,
     LionsInternationalHomePage,
     District306a1homePage,
-    ProfileViewerPage
+    ProfileViewerPage,
+    AboutLionismPage
   ],
   providers: [
     StatusBar,
