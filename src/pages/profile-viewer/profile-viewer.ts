@@ -79,7 +79,7 @@ export class ProfileViewerPage {
         this.title = this.navParams.get('data');
         this.showSearchbar = false;
         console.log("REGION BACK");
-      } else if  (this.zonebackLoop === "on") {
+      } else if (this.zonebackLoop === "on") {
         this.regionSelected(this.previous);
         this.zonebackLoop = "off";
         console.log("ZONE BACK");
@@ -87,6 +87,7 @@ export class ProfileViewerPage {
       } else if (this.clubSegment) {
         this.clubSegment = false;
         console.log("CLUB BACK");
+        this.clubStatus = "on";
         this.init();
       }
       else {
@@ -240,6 +241,21 @@ export class ProfileViewerPage {
         this.tempItems.subscribe();
       } else {
 
+      }
+    } else if (this.clubStatus === "on") {
+      this.items = this.mdb.list("officers/clubOfficers", ref => ref.orderByKey()).snapshotChanges();
+      this.tempItems = this.items;
+      var val = ev.target.value;
+      if (val && val.trim() != '') {
+        this.tempItems = this.items.pipe(
+          map(i => {
+            i = i.filter(data => {
+              return (data.payload.key.toLowerCase().indexOf(val.toLowerCase()) > -1);
+            });
+            return i;
+          })
+        );
+        this.tempItems.subscribe();
       }
     } else {
       // Reset items back to all of the items
