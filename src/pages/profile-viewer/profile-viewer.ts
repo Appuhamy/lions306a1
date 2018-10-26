@@ -6,7 +6,7 @@ import { FirebaseDatabase } from '@angular/fire';
 import { FirebaseListObservable } from '@angular/fire/database-deprecated'
 import { filter, map } from 'rxjs/operators';
 import { ViewChild } from '@angular/core';
-import { Navbar, Searchbar } from 'ionic-angular';
+import { Navbar, Searchbar,LoadingController  } from 'ionic-angular';
 /**
  * Generated class for the ProfileViewerPage page.
  *
@@ -33,6 +33,7 @@ export class ProfileViewerPage {
   previous = "none";
   clubStatus = "off";
   selectedClub = "none";
+  loading;
   clubSegment: boolean = false;
   showSearchbar: boolean = true;
   items: Observable<AngularFireAction<firebase.database.DataSnapshot>[]>;
@@ -49,7 +50,7 @@ export class ProfileViewerPage {
 
   zoneList = [];
   mdb: AngularFireDatabase;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase) {
+  constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase) {
     this.title = navParams.get('data');
     // this.items=db.list("officers/",ref=>ref.child("principleOfficeBearers").orderByKey());
     // this.items = db.list('/officers/regionChairPersons');
@@ -99,6 +100,7 @@ export class ProfileViewerPage {
     }
   }
   init() {
+    this.presentLoading();
     if (this.title === "Principle Office Bearers") {
       // this.app.getRootNav().push(ProfileViewerPage, {
       this.key = "principleOfficeBearers"
@@ -153,6 +155,7 @@ export class ProfileViewerPage {
       //this.tempItems = this.items;
       this.initClub();
     }
+    this.dismissLoading();
   }
 
   initRegions() {
@@ -170,8 +173,11 @@ export class ProfileViewerPage {
     this.clubStatus = "off";
     this.clubSegment = true;
     this.status = "regular";
+    this.presentLoading();
     this.items = this.mdb.list("officers/clubOfficers/" + club, ref => ref.orderByKey()).snapshotChanges();
     this.tempItems = this.items;
+    this.dismissLoading();
+    
   }
   regionSelected(region) {
     this.showSearchbar = false;
@@ -180,6 +186,7 @@ export class ProfileViewerPage {
     this.zoneStatus = "on";
     this.zonebackLoop = "off";
     this.title = region;
+    this.presentLoading();
     this.items = this.mdb.list("officers/regionChairPersons", ref => ref.orderByChild('region').equalTo(region)).snapshotChanges();
     this.tempItems = this.items;
     this.zoneList = [];
@@ -209,6 +216,7 @@ export class ProfileViewerPage {
       this.zoneList.push("ZONE 17");
       this.zoneList.push("ZONE 18");
     }
+    this.dismissLoading();
   }
 
   zoneSelected(zone) {
@@ -219,9 +227,11 @@ export class ProfileViewerPage {
     this.zoneStatus = "off";
     this.zonebackLoop = "on";
     this.title = zone;
+    this.presentLoading();
     this.items = this.mdb.list("officers/zoneChairPersons", ref => ref.orderByChild('zone').equalTo(zone)).snapshotChanges();
     this.tempItems = this.items;
     this.zoneList = [];
+    this.dismissLoading();
   }
 
   getItems(ev) {
@@ -293,6 +303,15 @@ export class ProfileViewerPage {
         // });
       }
     }
+  }
+  presentLoading() {
+    this.loading= this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    this.loading.present();
+  }
+  dismissLoading(){
+    this.loading.dismiss();
   }
 
 }
