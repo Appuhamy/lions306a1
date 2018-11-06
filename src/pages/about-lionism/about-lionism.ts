@@ -15,11 +15,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AboutLionismPage {
 
+  items=[
+    'Lions International Purpose',
+    'Lions International',
+    'Hellen Keller',
+    'Lions Code of Ethics',
+    'Association Name and Symbol',
+    'LCIF and Lions Reach Millions People'
+  ];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutLionismPage');
+  }
+  itemSelected(item: string) {
+    console.log("Selected Item", item);
   }
 
 }

@@ -13,6 +13,24 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-grid>
+    <ion-card class="detailcard">
+      <ion-row>
+        <ion-col padding>
+          <img src="assets/imgs/melvin_jones_portrait.jpg" class="imgs" />
+        </ion-col>
+        <ion-col col-8>
+          <div>Melvin Jones</div>
+          <div><b>Founder of Lions Clubs International</b></div>
+          <div>1879-1961</div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemSelected(item)" round>
+      {{ item }}
+    </button>
+  </ion-list>  
 </ion-content>
