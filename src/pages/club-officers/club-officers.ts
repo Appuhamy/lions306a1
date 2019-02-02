@@ -7,8 +7,10 @@ import { FirebaseListObservable } from '@angular/fire/database-deprecated'
 import { filter, map } from 'rxjs/operators';
 import { ViewChild } from '@angular/core';
 import { Navbar, Searchbar, LoadingController } from 'ionic-angular';
+
+
 /**
- * Generated class for the ProfileViewerPage page.
+ * Generated class for the ClubOfficersPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -16,11 +18,10 @@ import { Navbar, Searchbar, LoadingController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-profile-viewer',
-  templateUrl: 'profile-viewer.html',
+  selector: 'page-club-officers',
+  templateUrl: 'club-officers.html',
 })
-export class ProfileViewerPage {
-  @ViewChild(Navbar) navBar: Navbar;
+export class ClubOfficersPage {@ViewChild(Navbar) navBar: Navbar;
   @ViewChild(Searchbar) searchBar: Searchbar;
   list;
   title;
@@ -63,8 +64,7 @@ export class ProfileViewerPage {
     // );
     // console.log("Items2:"+this.items);
     this.mdb = db;
-    this.init();
-
+    this.clubSelected(this.title);
   }
 
   fetchData() {
@@ -74,30 +74,32 @@ export class ProfileViewerPage {
     console.log('ionViewDidLoad ProfileViewerPage');
     this.navBar.backButtonClick = (e: UIEvent) => {
       // todo something
-      if (this.backLoop === "on") {
-        this.status = "region";
-        this.backLoop = "off";
-        this.zoneStatus = "off";
-        this.title = this.navParams.get('data');
-        this.showSearchbar = false;
-        console.log("REGION BACK");
-      } else if (this.zonebackLoop === "on") {
-        this.regionSelected(this.previous);
-        this.zonebackLoop = "off";
-        console.log("ZONE BACK");
-        this.showSearchbar = false;
-      } else if (this.clubSegment) {
-        this.clubSegment = false;
-        console.log("CLUB BACK");
-        this.clubStatus = "on";
-        this.init();
-      }
-      else {
-        console.log(this.clubSegment)
+      // if (this.backLoop === "on") {
+      //   this.status = "region";
+      //   this.backLoop = "off";
+      //   this.zoneStatus = "off";
+      //   this.title = this.navParams.get('data');
+      //   this.showSearchbar = false;
+      //   console.log("REGION BACK");
+      // } else if (this.zonebackLoop === "on") {
+      //   this.regionSelected(this.previous);
+      //   this.zonebackLoop = "off";
+      //   console.log("ZONE BACK");
+      //   this.showSearchbar = false;
+      // } else if (this.clubSegment) {
+      //   this.clubSegment = false;
+      //   console.log("CLUB BACK");
+      //   this.clubStatus = "on";
+      //   this.init();
+      // }
+      // else {
+      //   console.log(this.clubSegment)
+      //   console.log("ALL BACK");
+      //   this.navCtrl.pop();
+      // }
+      console.log(this.clubSegment)
         console.log("ALL BACK");
         this.navCtrl.pop();
-      }
-
     }
   }
   init() {

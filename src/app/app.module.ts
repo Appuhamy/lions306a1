@@ -10,6 +10,7 @@ import{District306a1homePage}from '../pages/district306a1home/district306a1home'
 import{ProfileViewerPage} from '../pages/profile-viewer/profile-viewer'
 import{AboutLionismContentPage} from '../pages/about-lionism-content/about-lionism-content'
 import{AboutLionismPage} from '../pages/about-lionism/about-lionism'
+import{ClubOfficersPage} from '../pages/club-officers/club-officers'
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
@@ -34,7 +35,8 @@ export const config = {
     District306a1homePage,
     ProfileViewerPage,
     AboutLionismPage,
-    AboutLionismContentPage
+    AboutLionismContentPage,
+    ClubOfficersPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ export const config = {
     District306a1homePage,
     ProfileViewerPage,
     AboutLionismPage,
-    AboutLionismContentPage
+    AboutLionismContentPage,
+    ClubOfficersPage
   ],
   providers: [
     StatusBar,
