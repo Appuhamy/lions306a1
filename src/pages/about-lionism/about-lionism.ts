@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import{AboutLionismContentPage}from'../about-lionism-content/about-lionism-content'
 
 /**
  * Generated class for the AboutLionismPage page.
@@ -16,8 +17,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class AboutLionismPage {
 
   items=[
+    'Melvin Jones',
     'Lions International Purpose',
-    'Lions International',
+    'Lions International History',
     'Hellen Keller',
     'Lions Code of Ethics',
     'Association Name and Symbol',
@@ -31,6 +33,9 @@ export class AboutLionismPage {
   }
   itemSelected(item: string) {
     console.log("Selected Item", item);
+    this,this.navCtrl.push(AboutLionismContentPage, {
+      data: item
+    });
   }
 
 }
