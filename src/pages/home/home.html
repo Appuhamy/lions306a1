@@ -7,9 +7,9 @@
     </ion-buttons>
     <ion-title>Lions District 306 A1</ion-title>
     <ion-buttons end padding>
-      <button ion-button icon-only color="royal">
+      <!-- <button ion-button icon-only color="royal">
         <ion-icon name="search"></ion-icon>
-      </button>
+      </button> -->
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -54,4 +54,26 @@
       </ion-row>
     </ion-card>
   </ion-grid>
+  <ion-list>
+    <div *ngIf='status==="regular"'>
+      <ion-item ion-item *ngFor="let item of tempItems | async" padding>
+        <!-- <div *ngIf='item == null'></div> -->
+        <!-- <div *ngIf='item != null'>{{item.name}}</div> -->
+        <div><b>{{item.payload.val().name}}</b></div>
+        <div>{{item.payload.val().position}}</div>
+        <div>{{item.payload.val().homeClub}}</div>
+        <div>{{item.payload.val().spouse}}</div>
+        <div>{{item.payload.val().address}}</div>
+        <div>{{item.payload.val().email}}</div>
+        <div>{{item.payload.val().mobileNumber}}(M){{item.payload.val().residancePhoneNumber}}(R){{item.payload.val().officePhoneNumber}}(O)</div>
+      </ion-item>
+    </div>
+    <div>
+      <ion-item ion-item *ngFor="let item of tempItems | async" padding>
+        <h5 style="padding-bottom: 5px;"><b>{{item.payload.val().publishDate}}</b></h5>
+        <div style="padding-bottom: 5px;">{{item.payload.val().title}}</div>
+        <p text-wrap style="padding-bottom: 5px;">{{item.payload.val().content}}</p>
+      </ion-item>
+    </div>
+  </ion-list>
 </ion-content>  
